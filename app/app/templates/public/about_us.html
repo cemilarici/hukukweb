@@ -7,10 +7,15 @@
   </div>
   <div class="mt-8 grid md:grid-cols-2 gap-4">
     {% for person in team %}
-    <div class="rounded-xl border border-neutral-200 bg-white p-5">
-      <p class="font-semibold">{{ person.name }}</p>
-      <p class="text-sm text-neutral-600">{{ person.title }}</p>
-      <p class="mt-2 text-sm text-neutral-700">{{ person.bio }}</p>
+    <div class="rounded-xl border border-neutral-200 bg-white p-5 flex gap-4">
+      {% if person.image %}
+      <img src="{{ person.image }}" alt="{{ person.name }}" class="h-20 w-20 rounded-full object-cover flex-shrink-0 border border-neutral-200">
+      {% endif %}
+      <div>
+        <p class="font-semibold">{{ person.name }}</p>
+        <p class="text-sm text-neutral-600">{{ person.title }}</p>
+        <p class="mt-2 text-sm text-neutral-700">{{ person.bio }}</p>
+      </div>
     </div>
     {% endfor %}
   </div>

@@ -16,7 +16,15 @@
     <div><label>SEO Başlık</label><input name="seo_title" value="{{ item.meta.seo_title if item else '' }}"></div>
     <div><label>SEO Açıklama</label><textarea name="seo_description">{{ item.meta.seo_description if item else '' }}</textarea></div>
     <div><label>İçerik (Markdown)</label><textarea rows="14" name="content_markdown">{{ item.content_markdown if item else '' }}</textarea></div>
-    <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+    <div>
+      <label>Sayfa Arka Plan Görseli</label>
+      <input type="file" name="background_image_file" accept="image/png,image/jpeg,image/webp">
+      {% if item and item.meta.background_image %}<img src="{{ item.meta.background_image }}" alt="Arka plan" class="mt-2 h-24 rounded-lg border border-neutral-200 object-cover">{% endif %}
+    </div>
+    <div class="flex gap-3 items-center">
+      <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+      <a href="/admin/posts" class="btn border border-neutral-300 text-neutral-700">İptal</a>
+    </div>
   </form>
 </div>
 {% endblock %}

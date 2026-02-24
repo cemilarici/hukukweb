@@ -132,9 +132,14 @@ def service_save(
     seo_title: str = Form(default=""),
     seo_description: str = Form(default=""),
     content_markdown: str = Form(default=""),
+    background_image_file: UploadFile | None = File(default=None),
 ):
     validate_csrf(request, csrf_token)
     clean_slug = slugify(slug)
+    previous = get_service(slug_original) if slug_original else None
+    bg_path = previous.meta.background_image if previous else None
+    if background_image_file and background_image_file.filename:
+        bg_path = validate_and_save_image(background_image_file, f"service-bg-{clean_slug}")
     meta = ServiceMeta(
         title=title,
         slug=clean_slug,
@@ -143,6 +148,7 @@ def service_save(
         is_active=_is_checked(is_active),
         seo_title=seo_title,
         seo_description=seo_description,
+        background_image=bg_path,
     )
     save_service(meta, content_markdown)
     if slug_original and slug_original != clean_slug:
@@ -197,18 +203,22 @@ def post_save(
     seo_description: str = Form(default=""),
     content_markdown: str = Form(default=""),
     cover_image: UploadFile | None = None,
+    background_image_file: UploadFile | None = File(default=None),
 ):
     validate_csrf(request, csrf_token)
 
     clean_slug = slugify(slug)
     parsed_published = datetime.fromisoformat(published_at)
     if parsed_published.tzinfo is None:
-        parsed_published = parsed_published.replace(tzinfo=UTC)
+        parsed_published = parsed_published.astimezone(UTC)
 
     previous = get_post(slug_original) if slug_original else None
     cover_path = previous.meta.cover_image if previous else None
     if cover_image and cover_image.filename:
         cover_path = validate_and_save_image(cover_image, f"post-{clean_slug}")
+    bg_path = previous.meta.background_image if previous else None
+    if background_image_file and background_image_file.filename:
+        bg_path = validate_and_save_image(background_image_file, f"post-bg-{clean_slug}")
 
     meta = BlogMeta(
         title=title,
@@ -220,6 +230,7 @@ def post_save(
         seo_title=seo_title,
         seo_description=seo_description,
         cover_image=cover_path,
+        background_image=bg_path,
     )
     save_post(meta, content_markdown)
     if slug_original and slug_original != clean_slug:
@@ -288,11 +299,16 @@ def team_save(
     bio: str = Form(default=""),
     order: int = Form(default=0),
     is_active: str | None = Form(default="on"),
+    image: UploadFile | None = File(default=None),
 ):
     validate_csrf(request, csrf_token)
     items = load_team()
     key = slugify(name)
-    candidate = TeamItem(name=name, title=title, bio=bio, order=order, is_active=_is_checked(is_active))
+    existing = next((i for i in items if slugify(i.name) == key), None)
+    image_path = existing.image if existing else None
+    if image and image.filename:
+        image_path = validate_and_save_image(image, f"team-{key}")
+    candidate = TeamItem(name=name, title=title, bio=bio, order=order, is_active=_is_checked(is_active), image=image_path)
     found = False
     updated: list[TeamItem] = []
     for item in items:

@@ -16,8 +16,9 @@
   <link rel="stylesheet" href="/static/css/site.css">
 </head>
 <body>
-  {% if site_settings.background_image %}
-  <div class="site-photo" style="background-image: linear-gradient(rgba(245,241,233,0.8), rgba(245,241,233,0.9)), url('{{ site_settings.background_image }}');" aria-hidden="true"></div>
+  {% set bg = page_background if page_background else site_settings.background_image %}
+  {% if bg %}
+  <div class="site-photo" style="background-image: linear-gradient(rgba(245,241,233,0.8), rgba(245,241,233,0.9)), url('{{ bg }}');" aria-hidden="true"></div>
   {% endif %}
   <div class="site-backdrop" aria-hidden="true"></div>
   {% include "partials/_nav.html" %}

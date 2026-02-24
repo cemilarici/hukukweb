@@ -17,6 +17,7 @@ class ServiceMeta(BaseModel):
     is_active: bool = True
     seo_title: str = ""
     seo_description: str = ""
+    background_image: str | None = None
 
 
 class BlogMeta(BaseModel):
@@ -29,6 +30,7 @@ class BlogMeta(BaseModel):
     seo_title: str = ""
     seo_description: str = ""
     cover_image: str | None = None
+    background_image: str | None = None
 
 
 class CategoryItem(BaseModel):

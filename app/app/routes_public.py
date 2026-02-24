@@ -72,7 +72,7 @@ def service_detail(request: Request, slug: str):
         service.meta.seo_title or service.meta.title,
         service.meta.seo_description or service.meta.summary,
     )
-    ctx.update({"service": service})
+    ctx.update({"service": service, "page_background": service.meta.background_image})
     return templates.TemplateResponse(request, "public/service_detail.html", ctx)
 
 
@@ -101,7 +101,7 @@ def post_detail(request: Request, slug: str):
         post.meta.seo_title or post.meta.title,
         post.meta.seo_description or post.meta.excerpt,
     )
-    ctx.update({"post": post})
+    ctx.update({"post": post, "page_background": post.meta.background_image})
     return templates.TemplateResponse(request, "public/post_detail.html", ctx)
 
 

@@ -8,5 +8,10 @@
     "name": "Sozlesmeler",
     "slug": "sozlesmeler",
     "is_active": true
+  },
+  {
+    "name": "bosanma",
+    "slug": "konu",
+    "is_active": true
   }
 ]
