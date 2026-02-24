@@ -1,0 +1,26 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-6xl px-4 py-10">
+  <div class="flex justify-between items-center">
+    <h1 class="font-serif text-3xl">Hizmetler</h1>
+    <a class="btn bg-neutral-900 text-white" href="/admin/services/new">Yeni Hizmet</a>
+  </div>
+  <table class="mt-6 w-full bg-white border rounded-xl text-sm">
+    <thead><tr class="text-left border-b"><th class="p-3">Başlık</th><th>Slug</th><th>Durum</th><th></th></tr></thead>
+    <tbody>
+      {% for item in items %}
+      <tr class="border-b">
+        <td class="p-3">{{ item.meta.title }}</td><td>{{ item.meta.slug }}</td><td>{{ "Aktif" if item.meta.is_active else "Pasif" }}</td>
+        <td class="p-3 text-right">
+          <a class="underline" href="/admin/services/{{ item.meta.slug }}/edit">Düzenle</a>
+          <form method="post" action="/admin/services/{{ item.meta.slug }}/delete" class="inline">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <button class="ml-3 text-red-700" type="submit">Sil</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-6xl px-4 py-12">
+  <p class="eyebrow">YAYINLAR</p>
+  <h1 class="hero-title mt-3">Makaleler</h1>
+  <form class="mt-6 max-w-sm panel" method="get">
+    <label for="kategori">Kategori</label>
+    <select id="kategori" name="kategori" onchange="this.form.submit()">
+      <option value="">Tümü</option>
+      {% for c in categories %}<option value="{{ c.slug }}" {% if selected_category == c.slug %}selected{% endif %}>{{ c.name }}</option>{% endfor %}
+    </select>
+  </form>
+  <div class="mt-6 grid md:grid-cols-3 gap-5">
+    {% for item in posts %}{% include "partials/_card_post.html" %}{% else %}<p class="text-[var(--muted)]">Henüz makale yok.</p>{% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-4xl px-4 py-10">
+  <h1 class="font-serif text-3xl">Site Ayarları</h1>
+  {% if saved %}<p class="mt-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700">Ayarlar kaydedildi.</p>{% endif %}
+  {% if error %}<p class="mt-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{{ error }}</p>{% endif %}
+  <form class="mt-6 space-y-4" method="post" action="/admin/settings" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <div><label>Firma Adı</label><input name="firm_name" value="{{ item.firm_name }}"></div>
+    <div><label>Telefon</label><input name="phone" value="{{ item.phone }}"></div>
+    <div><label>WhatsApp</label><input name="whatsapp" value="{{ item.whatsapp }}"></div>
+    <div><label>E-posta</label><input name="email" value="{{ item.email }}"></div>
+    <div><label>Adres</label><textarea name="address">{{ item.address }}</textarea></div>
+    <div><label>Harita Iframe URL</label><input name="map_iframe_url" value="{{ item.map_iframe_url }}"></div>
+    <div><label>Biz Kimiz Metni</label><textarea rows="5" name="about_text">{{ item.about_text }}</textarea></div>
+    <div><label>Kurucu Metni</label><textarea rows="5" name="founder_text">{{ item.founder_text }}</textarea></div>
+    <div>
+      <label>Site Arka Plan Görseli</label>
+      <input type="file" name="background_image_file" accept="image/png,image/jpeg,image/webp">
+      {% if item.background_image %}<img src="{{ item.background_image }}" alt="Arka plan" class="mt-3 h-32 rounded-lg border border-[rgba(185,147,90,0.35)] object-cover">{% endif %}
+      <label class="mt-2 inline-flex items-center gap-2"><input type="checkbox" name="remove_background"> Arka plan görselini kaldır</label>
+    </div>
+    <div><label>Varsayılan SEO Başlık</label><input name="default_seo_title" value="{{ item.default_seo_title }}"></div>
+    <div><label>Varsayılan SEO Açıklama</label><textarea name="default_seo_description">{{ item.default_seo_description }}</textarea></div>
+    <div><label>LinkedIn</label><input name="linkedin" value="{{ item.social.linkedin }}"></div>
+    <div><label>Instagram</label><input name="instagram" value="{{ item.social.instagram }}"></div>
+    <div><label>X</label><input name="x" value="{{ item.social.x }}"></div>
+    <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+  </form>
+</div>
+{% endblock %}

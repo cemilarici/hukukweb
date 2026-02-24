@@ -1,0 +1,9 @@
+﻿<div class="cta-wrap">
+  <h2 class="font-serif text-4xl">Dosyanızı Stratejik Olarak Konumlandıralım</h2>
+  <p class="mt-3 text-sm text-[var(--muted)]">Ön görüşmede risk haritasını çıkarır, izleyeceğimiz yol haritasını netleştiririz.</p>
+  <div class="mt-6 flex justify-center gap-3 text-sm flex-wrap">
+    {% if site_settings.phone %}<a class="btn btn-primary" href="tel:{{ site_settings.phone }}">Ara</a>{% endif %}
+    {% if site_settings.whatsapp %}<a class="btn btn-outline" href="https://wa.me/{{ site_settings.whatsapp|replace('+','') }}" target="_blank">WhatsApp</a>{% endif %}
+    <a class="btn btn-outline" href="/iletisim/">İletişim</a>
+  </div>
+</div>

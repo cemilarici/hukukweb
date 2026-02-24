@@ -1,0 +1,22 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+
+# Test cache
+.pytest_cache/
+
+# Sensitive data - never commit
+data/users/
+data/leads/
+
+# Uploaded media (binary, large)
+data/media/uploads/
+
+# Claude Code internal
+.claude/

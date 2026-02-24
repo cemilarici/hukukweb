@@ -1,0 +1,22 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-4xl px-4 py-10">
+  <h1 class="font-serif text-3xl">{{ "Makale Düzenle" if item else "Yeni Makale" }}</h1>
+  <form class="mt-6 space-y-4" method="post" action="/admin/posts/save" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="slug_original" value="{{ item.meta.slug if item else '' }}">
+    <div><label>Başlık</label><input name="title" value="{{ item.meta.title if item else '' }}" required></div>
+    <div><label>Slug</label><input name="slug" value="{{ item.meta.slug if item else '' }}" required></div>
+    <div><label>Özet</label><textarea name="excerpt">{{ item.meta.excerpt if item else '' }}</textarea></div>
+    <div><label>Kategori</label><select name="category_slug"><option value="">Seçiniz</option>{% for c in categories %}<option value="{{ c.slug }}" {% if item and item.meta.category_slug == c.slug %}selected{% endif %}>{{ c.name }}</option>{% endfor %}</select></div>
+    <div><label>Yayın Tarihi</label><input type="datetime-local" name="published_at" value="{{ item.meta.published_at.strftime('%Y-%m-%dT%H:%M') if item else '' }}" required></div>
+    <div><label>Durum</label><select name="status"><option value="draft" {% if item and item.meta.status == 'draft' %}selected{% endif %}>Taslak</option><option value="published" {% if item and item.meta.status == 'published' %}selected{% endif %}>Yayınla</option></select></div>
+    <div><label>Kapak Görseli</label><input type="file" name="cover_image" accept="image/png,image/jpeg,image/webp"></div>
+    {% if item and item.meta.cover_image %}<img src="{{ item.meta.cover_image }}" class="h-28 rounded" alt="cover">{% endif %}
+    <div><label>SEO Başlık</label><input name="seo_title" value="{{ item.meta.seo_title if item else '' }}"></div>
+    <div><label>SEO Açıklama</label><textarea name="seo_description">{{ item.meta.seo_description if item else '' }}</textarea></div>
+    <div><label>İçerik (Markdown)</label><textarea rows="14" name="content_markdown">{{ item.content_markdown if item else '' }}</textarea></div>
+    <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+  </form>
+</div>
+{% endblock %}

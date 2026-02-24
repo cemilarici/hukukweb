@@ -1,0 +1,47 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<section class="mx-auto max-w-6xl px-4 pt-14 pb-8 fade-up">
+  <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
+    <div>
+      <p class="eyebrow">TİCARİ HUKUK VE UYUŞMAZLIK YÖNETİMİ</p>
+      <h1 class="hero-title mt-4">Hukuki Riskleri Karara Dönüştüren Strateji</h1>
+      <p class="mt-5 max-w-2xl text-[var(--muted)]">VAROL HUKUK, şirketlerin dava ve danışmanlık süreçlerinde ölçülebilir sonuç hedefiyle çalışan uzman hukuk ekibidir.</p>
+      <div class="mt-7 flex gap-3 flex-wrap">
+        <a class="btn btn-primary" href="/iletisim/">Görüşme Planla</a>
+        <a class="btn btn-outline" href="/hizmetler/">Hizmetleri İncele</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <p class="text-xs tracking-[0.2em] text-[var(--muted)]">YAKLAŞIMIMIZ</p>
+      <p class="mt-3 font-serif text-3xl text-[var(--navy)]">Önleyici danışmanlık, güçlü dava takibi, net iletişim.</p>
+      <div class="mt-6 grid grid-cols-3 gap-3 text-center text-xs">
+        <div><p class="font-serif text-3xl text-[var(--gold)]">24h</p><p class="text-[var(--muted)]">İlk dönüş</p></div>
+        <div><p class="font-serif text-3xl text-[var(--gold)]">%100</p><p class="text-[var(--muted)]">Dosya şeffaflığı</p></div>
+        <div><p class="font-serif text-3xl text-[var(--gold)]">1:1</p><p class="text-[var(--muted)]">Uzman takip</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-4 py-10 fade-up">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="section-title text-4xl">Öne Çıkan Hizmetler</h2>
+    <a class="text-sm text-[var(--gold)]" href="/hizmetler/">Tümünü Gör</a>
+  </div>
+  <div class="mt-6 grid md:grid-cols-3 gap-5">
+    {% for item in services %}{% include "partials/_card_service.html" %}{% endfor %}
+  </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-4 py-10 fade-up">
+  <div class="flex items-end justify-between gap-4">
+    <h2 class="section-title text-4xl">Güncel Makaleler</h2>
+    <a class="text-sm text-[var(--gold)]" href="/makale/">Arşiv</a>
+  </div>
+  <div class="mt-6 grid md:grid-cols-3 gap-5">
+    {% for item in posts %}{% include "partials/_card_post.html" %}{% endfor %}
+  </div>
+</section>
+
+<section class="mx-auto max-w-6xl px-4 pb-16 fade-up">{% include "partials/_cta.html" %}</section>
+{% endblock %}

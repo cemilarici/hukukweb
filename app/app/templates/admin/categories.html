@@ -1,0 +1,24 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-10">
+  <h1 class="font-serif text-3xl">Kategoriler</h1>
+  <form class="mt-6 grid md:grid-cols-4 gap-3" method="post" action="/admin/categories/save">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input name="name" placeholder="Kategori adı" required>
+    <input name="slug" placeholder="slug" required>
+    <label><input type="checkbox" name="is_active" checked> Aktif</label>
+    <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+  </form>
+  <div class="mt-6 bg-white border rounded-xl p-4">
+    {% for item in items %}
+    <div class="py-2 border-b flex justify-between text-sm">
+      <span>{{ item.name }} ({{ item.slug }})</span>
+      <form method="post" action="/admin/categories/{{ item.slug }}/delete">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button class="text-red-700" type="submit">Sil</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

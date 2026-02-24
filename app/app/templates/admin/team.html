@@ -1,0 +1,26 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<div class="mx-auto max-w-5xl px-4 py-10">
+  <h1 class="font-serif text-3xl">Ekip</h1>
+  <form class="mt-6 grid md:grid-cols-2 gap-3" method="post" action="/admin/team/save">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input name="name" placeholder="Ad Soyad" required>
+    <input name="title" placeholder="Unvan">
+    <textarea class="md:col-span-2" name="bio" placeholder="Kısa biyografi"></textarea>
+    <input type="number" name="order" value="0">
+    <label><input type="checkbox" name="is_active" checked> Aktif</label>
+    <button class="btn bg-neutral-900 text-white" type="submit">Kaydet</button>
+  </form>
+  <div class="mt-6 bg-white border rounded-xl p-4">
+    {% for item in items %}
+    <div class="py-2 border-b flex justify-between text-sm">
+      <span>{{ item.order }} - {{ item.name }} / {{ item.title }}</span>
+      <form method="post" action="/admin/team/{{ item.name|lower|replace(' ','-') }}/delete">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <button class="text-red-700" type="submit">Sil</button>
+      </form>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

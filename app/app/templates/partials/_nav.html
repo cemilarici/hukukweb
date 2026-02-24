@@ -1,0 +1,15 @@
+﻿<header class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="brand">{{ site_settings.firm_name }}</a>
+    <nav class="hidden md:flex gap-8 text-sm text-[var(--muted)]">
+      <a class="menu-link" href="/hizmetler/">Hizmetler</a>
+      <a class="menu-link" href="/makale/">Makaleler</a>
+      <a class="menu-link" href="/hakkimizda/biz-kimiz/">Hakkımızda</a>
+      <a class="menu-link" href="/iletisim/">İletişim</a>
+    </nav>
+    <div class="flex gap-2 text-xs">
+      {% if site_settings.phone %}<a class="btn btn-outline" href="tel:{{ site_settings.phone }}">Ara</a>{% endif %}
+      {% if site_settings.whatsapp %}<a class="btn btn-primary" href="https://wa.me/{{ site_settings.whatsapp|replace('+','') }}" target="_blank">WhatsApp</a>{% endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Ticaret Hukuku",
+    "slug": "ticaret-hukuku",
+    "is_active": true
+  },
+  {
+    "name": "Sozlesmeler",
+    "slug": "sozlesmeler",
+    "is_active": true
+  }
+]

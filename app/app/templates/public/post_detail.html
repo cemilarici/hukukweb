@@ -1,0 +1,13 @@
+﻿{% extends "base.html" %}
+{% block content %}
+<article class="mx-auto max-w-4xl px-4 py-12">
+  <div class="panel">
+    <p class="text-xs tracking-[0.16em] text-[var(--muted)]">{{ post.meta.published_at.strftime('%d.%m.%Y') }}</p>
+    <h1 class="hero-title mt-3 text-5xl">{{ post.meta.title }}</h1>
+    <p class="mt-4 text-[var(--muted)]">{{ post.meta.excerpt }}</p>
+    {% if post.meta.cover_image %}<img class="mt-6 rounded-xl border border-[rgba(185,147,90,0.35)]" src="{{ post.meta.cover_image }}" alt="{{ post.meta.title }}">{% endif %}
+    <div class="prose mt-8">{{ post.content_html|safe }}</div>
+    <div class="mt-8 text-sm"><a class="text-[var(--gold)]" href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.url }}" target="_blank">LinkedIn'de paylaş</a></div>
+  </div>
+</article>
+{% endblock %}
