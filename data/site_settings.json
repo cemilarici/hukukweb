@@ -1,18 +1,18 @@
 {
   "firm_name": "VAROL HUKUK",
-  "phone": "1",
-  "whatsapp": "2",
-  "email": "a@b.com",
-  "address": "x",
+  "phone": "+90 212 555 01 23",
+  "whatsapp": "+90 532 555 01 23",
+  "email": "info@varolhukuk.com.tr",
+  "address": "Levent Mah. Büyükdere Cad. No:185 Kat:12 Şişli / İstanbul",
   "map_iframe_url": "",
-  "about_text": "aa",
-  "founder_text": "bb",
+  "about_text": "VAROL HUKUK, ticaret hukuku ve şirketler hukuku alanlarında uzmanlaşmış bir hukuk bürosudur. İstanbul'da kurulu olan büromuz; kurumsal müvekkillere, küçük ve orta ölçekli işletmelere ile girişimcilere kapsamlı hukuki danışmanlık hizmetleri sunmaktadır.\n\nDeneyimli avukat kadromuzla; sözleşme hazırlığı ve müzakere, ticari uyuşmazlık çözümü, şirket kuruluşu ve yönetimi, iş hukuku danışmanlığı ve icra-iflas süreçleri konularında çözüm odaklı hizmet veriyoruz.\n\nMüvekkillerimizin iş süreçlerini hukuki risklerden korumak ve ticari hedeflerine ulaşmalarını desteklemek temel önceliğimizdir.",
+  "founder_text": "Av. Mert Varol, İstanbul Üniversitesi Hukuk Fakültesi'nden mezun olduktan sonra yüksek lisans eğitimini ticaret hukuku alanında tamamlamıştır. 15 yılı aşkın mesleki deneyimi süresince çok sayıda ulusal ve uluslararası şirkete hukuki danışmanlık yapmış, yüzlerce ticari davayı başarıyla sonuçlandırmıştır.\n\nŞirket birleşmeleri ve devralmalar, franchise hukuku, uluslararası ticaret sözleşmeleri konularındaki derin bilgi birikimi ile VAROL HUKUK'u ticaret hukukunun önde gelen bürolarından biri konumuna taşımıştır.\n\nTürkiye Barolar Birliği ve İstanbul Barosu üyesi olan Av. Varol, çeşitli hukuk dergilerinde makaleleri yayımlanmış ve sektör konferanslarında konuşmacı olarak yer almıştır.",
   "background_image": "/data/media/uploads/site-background.jpg",
-  "default_seo_title": "VAROL HUKUK",
-  "default_seo_description": "",
+  "default_seo_title": "VAROL HUKUK | Ticaret ve Şirketler Hukuku",
+  "default_seo_description": "İstanbul'da ticaret hukuku, sözleşme danışmanlığı ve ticari dava takibi alanlarında uzman hukuk bürosu.",
   "social": {
-    "linkedin": "",
-    "instagram": "",
+    "linkedin": "https://linkedin.com/company/varolhukuk",
+    "instagram": "https://instagram.com/varolhukuk",
     "x": ""
   }
 }

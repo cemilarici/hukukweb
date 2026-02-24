@@ -1,10 +1,26 @@
 [
   {
-    "name": "Av. Ornek Varol",
-    "title": "Kurucu Avukat",
-    "bio": "Ticari uyusmazliklar ve sozlesme yonetimi.",
+    "name": "Av. Mert Varol",
+    "title": "Kurucu Ortak",
+    "bio": "Ticaret hukuku ve şirketler hukuku alanında 15 yılı aşkın deneyime sahip olan Av. Mert Varol, kurumsal müvekkillere sözleşme müzakeresi, ticari dava takibi ve şirket yönetimi konularında stratejik hukuki danışmanlık sunmaktadır.",
     "image": null,
     "order": 1,
+    "is_active": true
+  },
+  {
+    "name": "Av. Selin Kaya",
+    "title": "Kıdemli Avukat",
+    "bio": "İş hukuku ve icra-iflas hukuku alanlarında uzmanlaşan Av. Selin Kaya, işveren müvekkillere disiplin süreçleri ve iş sözleşmesi danışmanlığı konularında kapsamlı destek vermektedir.",
+    "image": null,
+    "order": 2,
+    "is_active": true
+  },
+  {
+    "name": "Av. Emre Doğan",
+    "title": "Avukat",
+    "bio": "Şirket kuruluşu, ticaret sicili işlemleri ve sözleşme hazırlığı konularında aktif olarak görev yapan Av. Emre Doğan, özellikle teknoloji ve e-ticaret sektörü müvekkillerine odaklanmaktadır.",
+    "image": null,
+    "order": 3,
     "is_active": true
   }
 ]

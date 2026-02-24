@@ -5,13 +5,18 @@
     "is_active": true
   },
   {
-    "name": "Sozlesmeler",
+    "name": "Sözleşmeler",
     "slug": "sozlesmeler",
     "is_active": true
   },
   {
-    "name": "bosanma",
-    "slug": "konu",
+    "name": "Şirketler Hukuku",
+    "slug": "sirketler-hukuku",
+    "is_active": true
+  },
+  {
+    "name": "İş Hukuku",
+    "slug": "is-hukuku",
     "is_active": true
   }
 ]
